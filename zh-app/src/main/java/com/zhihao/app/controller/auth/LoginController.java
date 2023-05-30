@@ -31,11 +31,11 @@ public class LoginController {
     }
 
     /*
-    * 刷新(续期) Token
+    * 登录用户信息、无状态刷新 token
     * */
-    @PostMapping("/refresh-token")
-    public R<Map<String, String>> refreshToken(@RequestHeader String token) {
-        return loginService.refreshToken(token);
+    @PostMapping("/user-info")
+    public R<Map<String, Object>> loginUserInfo(@RequestHeader String token) {
+        return loginService.getUserInfo(token);
     }
 
     /*

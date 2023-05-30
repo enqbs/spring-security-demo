@@ -14,9 +14,9 @@ public interface LoginService {
     R<Map<String, String>> login(LoginForm form);
 
     /*
-    * 刷新 JWT
+    * 登录用户信息、无状态刷新 token
     * */
-    R<Map<String, String>> refreshToken(String token);
+    R<Map<String, Object>> getUserInfo(String token);
 
     /*
     * 注册

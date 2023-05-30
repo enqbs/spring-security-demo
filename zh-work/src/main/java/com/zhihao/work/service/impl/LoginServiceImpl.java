@@ -6,6 +6,7 @@ import com.zhihao.common.util.R;
 import com.zhihao.common.util.RedisUtil;
 import com.zhihao.common.util.UUIDUtil;
 import com.zhihao.system.pojo.SysUser;
+import com.zhihao.system.pojo.vo.SysUserVO;
 import com.zhihao.system.service.SysUserService;
 import com.zhihao.work.form.LoginForm;
 import com.zhihao.work.form.RegisterForm;
@@ -67,10 +68,13 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public R<Map<String, String>> refreshToken(String token) {
+    public R<Map<String, Object>> getUserInfo(String token) {
         String newToken = tokenService.getNewToken(token);
-        Map<String, String> map = new HashMap<>();
+        LoginUser loginUser = tokenService.getLoginUser(newToken);
+        SysUserVO userVO = sysUserService.getSysUserVOByUserId(loginUser.getSysUser().getId());
+        Map<String, Object> map = new HashMap<>();
         map.put("token", newToken);
+        map.put("userInfo", userVO);
         return R.ok(map);
     }
 

@@ -825,7 +825,7 @@
 			"response": []
 		},
 		{
-			"name": "刷新token",
+			"name": "用户信息",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -836,7 +836,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/refresh-token",
+					"raw": "http://localhost:8080/user-info",
 					"protocol": "http",
 					"host": [
 						"localhost"
