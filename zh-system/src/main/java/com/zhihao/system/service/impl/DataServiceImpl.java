@@ -22,7 +22,7 @@ public class DataServiceImpl implements DataService {
     private DataMapper dataMapper;
 
     @Override
-    public List<DataVO> getDataVOList() {
+    public List<DataVO> listDataVOs() {
         List<Data> dataList = dataMapper.selectListAll();
         return dataList.stream().map(this::data2DataVO).collect(Collectors.toList());
     }

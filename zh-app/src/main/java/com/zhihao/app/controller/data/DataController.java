@@ -33,7 +33,7 @@ public class DataController {
     * */
     @GetMapping("/list")
     public R<List<DataVO>> dataList() {
-        List<DataVO> dataVOList = dataService.getDataVOList();
+        List<DataVO> dataVOList = dataService.listDataVOs();
         return R.ok(dataVOList);
     }
 

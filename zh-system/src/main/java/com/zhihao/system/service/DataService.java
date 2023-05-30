@@ -10,7 +10,7 @@ public interface DataService {
     /*
     * 测试数据列表
     * */
-    List<DataVO> getDataVOList();
+    List<DataVO> listDataVOs();
 
     /*
     * 新增测试数据
