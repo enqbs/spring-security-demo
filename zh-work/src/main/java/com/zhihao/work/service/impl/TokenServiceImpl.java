@@ -45,11 +45,11 @@ public class TokenServiceImpl implements TokenService {
     public String getNewToken(String token) {
         try {
             JwtUtil.verifierToken(token, jwtPramConfig.getSecret());
-            long expire = JwtUtil.getExpire(token);
-            long currentTimeMillis = System.currentTimeMillis();
-            long timeLeft = 3600 * 1000L;
+            long expireTime = JwtUtil.getExpire(token);                 // JWT 过期时间
+            long currentTime = System.currentTimeMillis() / 1000L;      // 当前时间
+            long oneHour = 3600L;                                       // 一小时 3600 秒
             /* 如果 jwt 过期时间小于1小时,返回新 token */
-            if (expire - currentTimeMillis < timeLeft) {
+            if (expireTime - currentTime < oneHour) {
                 String userToken = JwtUtil.getString(token, Constants.USER_TOKEN);
                 return JwtUtil.createToken(Constants.USER_TOKEN, userToken, jwtPramConfig.getExpire(), jwtPramConfig.getSecret());
             }
