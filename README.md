@@ -31,7 +31,7 @@ user		123456		普通用户
 spring-security-demo
 ├─zh-app	--	Application、Controller、classpath 配置文件
 ├─zh-common	--	封装的常用工具类、常量、异常处理
-├─zh-system	--	业务代码、CURD
+├─zh-system	--	业务代码、CRUD
 └─zh-work	--	Spring Security 相关配置、处理
 ```
 
