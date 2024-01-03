@@ -4,16 +4,18 @@ spring:
     url: jdbc:mysql://192.168.43.2:3306/spring_security_demo?serverTimezone=UTC
     username: root
     password: root
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    default-property-inclusion: non_null
   redis:
     host: 192.168.43.2
     port: 6379
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
   mapper-locations: classpath*:mapper/*.xml
+
 jwt:
   secret: 346db7ec5b6b43bbbde0554136be74fd
   expire: 1

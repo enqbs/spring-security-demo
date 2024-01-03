@@ -7,9 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -37,12 +37,7 @@ public class SysRolePermServiceImpl implements SysRolePermService {
     }
 
     private List<SysRolePermissions> buildSysRolePermissionsList(Integer roleId, Set<Integer> permIdSet) {
-        List<SysRolePermissions> rolePermList = new ArrayList<>();
-        permIdSet.forEach(permId -> {
-            SysRolePermissions rolePerm = buildSysRolePermissions(roleId, permId);
-            rolePermList.add(rolePerm);
-        });
-        return rolePermList;
+        return permIdSet.stream().map(p -> buildSysRolePermissions(roleId, p)).collect(Collectors.toList());
     }
 
     private SysRolePermissions buildSysRolePermissions(Integer roleId, Integer permId) {

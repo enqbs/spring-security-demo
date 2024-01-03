@@ -16,18 +16,17 @@ Spring Boot + Spring Security + JWT 的 RBAC 权限系统 DEMO，前后端分离
 
 RBAC 权限模型采用经典的“五表”结构设计，外加一张“测试数据表”提供系统测试。测试用户：
 
-```shell
-用户名		密码		角色
-root		root		超级管理员
-admin		admin		管理员
-user		123456		普通用户
-```
+| 用户名   | 密码     | 角色    |
+|-------|--------|-------|
+| root  | root   | 超级管理员 |
+| admin | admin  | 管理员   |
+| user  | 123456 | 普通用户  |
 
 ------
 
 ## 目录结构
 
-```shell
+```text
 spring-security-demo
 ├─zh-app	--	Application、Controller、classpath 配置文件
 ├─zh-common	--	封装的常用工具类、常量、异常处理
@@ -36,4 +35,3 @@ spring-security-demo
 ```
 
 ------
-

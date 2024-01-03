@@ -7,9 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -37,12 +37,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
     }
 
     private List<SysUserRole> buildSysUserRoleList(Integer userId, Set<Integer> roleIdSet) {
-        List<SysUserRole> userRoleList = new ArrayList<>();
-        roleIdSet.forEach(roleId -> {
-            SysUserRole userRole = buildSysUserRole(userId, roleId);
-            userRoleList.add(userRole);
-        });
-        return userRoleList;
+        return roleIdSet.stream().map(r -> buildSysUserRole(userId, r)).collect(Collectors.toList());
     }
 
     private SysUserRole buildSysUserRole(Integer userId, Integer roleId) {
